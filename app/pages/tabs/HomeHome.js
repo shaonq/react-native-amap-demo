@@ -1,14 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component,PropTypes,createClass} from 'react';
 import {
     View,
     Text,
     Dimensions,
     Alert,
     Platform,
-} from 'react-native';
+    StyleSheet,
+    NativeAppEventEmitter,
+    ActivityIndicator
+} from 'react-native'
 
 import AMap from 'react-native-smart-amap';
 import AMapLocation from 'react-native-smart-amap-location'
+import AppEventListenerEnhance from 'react-native-smart-app-event-listener-enhance'
 
 const {width, height} = Dimensions.get('window');
 
@@ -21,11 +25,12 @@ const options ={
         latitude:120.204851,
         longitude:31.261822,
     },
-    zoomLevel: 3, //指定缩放级别
+    zoomLevel: 8, //指定缩放级别
     centerMarker: Platform.OS === 'ios' ? 'icon_location' : 'poi_marker', //中心点自定义图标的项目资源名称
 };
 /**
- * @url:  https://github.com/react-native-component/react-native-smart-amap
+ * @name react-native-smart-amap
+ * @url: https://github.com/react-native-component/react-native-smart-amap
  * API:
  * setOptions:修改默认配置
  * setCenterCoordinate:修改中心点
@@ -35,20 +40,43 @@ const options ={
  * onDidMoveByUser:监听用户动作, 返回当前地图中心点的经纬度信息
  * amap.onPOISearchDone: 监听POI搜索回调, 返回周边的POI信息
  * */
-export default class HomeHome extends Component {
+class HomeHome extends Component {
 
     constructor(props) {
         super(props);
         this._amap = null;
-        this._keywords = '商务住宅|学校';
     }
     _onDidMoveByUser = (e) => {
-        console.log(1,e)
+        console.log("用户操作",e)
     };
     _onLayout = (e) => {
-        console.log(2,e);
-        console.log(3,this._amap)
+
+        AMapLocation.init(null); // 初始化
+        //AMapLocation.getReGeocode(); // 开始定位 位置
+        AMapLocation.getLocation(); // 开始定位 坐标
+        console.log("加载完成",this._amap)
     };
+    _onLocationResult = (result) => {
+        if(result.error) {
+            Alert.alert(`错误代码: ${result.error.code}, 错误信息: ${result.error.localizedDescription}`)
+        }
+        else {
+            if(result.formattedAddress) {
+                Alert.alert(`格式化地址 = ${result.formattedAddress}`)
+            }
+            else {
+                Alert.alert(`纬度 = ${result.coordinate.latitude}, 经度 = ${result.coordinate.longitude}`)
+            }
+        }
+    };
+    componentDidMount() {
+        this.addAppEventListener(
+            NativeAppEventEmitter.addListener('amap.location.onLocationResult', this._onLocationResult)
+        )
+    }
+    componentWillUnmount () {
+        AMapLocation.cleanUp()
+    }
     render() {
         return (
             <View style={{flex: 1}}>
@@ -64,3 +92,5 @@ export default class HomeHome extends Component {
     }
 
 }
+
+export default AppEventListenerEnhance(HomeHome)
