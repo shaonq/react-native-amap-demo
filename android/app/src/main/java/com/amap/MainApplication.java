@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.reactnativecomponent.amap.RCTAMapPackage;    //import package
+import com.reactnativecomponent.amaplocation.RCTAMapLocationPackage;    //import package
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -25,7 +26,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
          new MainReactPackage(),
-         new RCTAMapPackage()  //register Module
+         new RCTAMapPackage(),  //register Module
+         new RCTAMapLocationPackage()  //register Module
       );
     }
   };
