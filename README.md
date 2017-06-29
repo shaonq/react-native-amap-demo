@@ -10,6 +10,15 @@ npm install  react-native-smart-app-event-listener-enhance --save
 
 ```
 
+### `com.amap.api.v2.apikey`
+* `URL`
+>  [lbs.amap.com](http://lbs.amap.com/dev/key/app)
+* `Android`
+```
+# PackageName:[packageName]
+# 发布版安全码SHA1: cmd -> keytool -v -list -keystore [keystorePath] ->SHA1
+```
+
 ### Android 
 🔨 `android/settings.gradle`
 
@@ -207,8 +216,10 @@ class HomeHome extends Component {
 export default AppEventListenerEnhance(HomeHome)
 ```
 
-### end 
+### End 
 `react-native run-android`
+
+![demo1](app/images/2017-06-29_132709.png)
 ```json
 {
     "code":2,
