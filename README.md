@@ -2,7 +2,7 @@
 
 ```
 # 高德地图
-npm install 'eact-native-smart-amap --save
+npm install react-native-smart-amap --save
 # 高德地图定位
 npm install  react-native-smart-amap-location --save
 # 全局事件监听
@@ -52,8 +52,12 @@ protected List<ReactPackage> getPackages() {
 
 🔨 `android\app\src\main\AndroidManifest.xml`
 
-```
-    ...
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.amap"
+          android:versionCode="1"
+          android:versionName="1.0">
+    <!-- ... -->
     <!--运营商信息-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!--wifi网络定位-->
@@ -80,14 +84,14 @@ protected List<ReactPackage> getPackages() {
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!-- 更改设置 -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    ...
+    <!-- ... -->
     <application
             android:name=".MainApplication"
             android:allowBackup="true"
             android:label="@string/app_name"
             android:icon="@mipmap/ic_launcher"
             android:theme="@style/AppTheme">
-        ...
+        <!-- ... -->
         <!-- amap key -->
         <meta-data
                 android:name="com.amap.api.v2.apikey"
@@ -96,6 +100,7 @@ protected List<ReactPackage> getPackages() {
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>
+</manifest>
 ```
 ### IOS
 * `null`
