@@ -54,7 +54,7 @@ protected List<ReactPackage> getPackages() {
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.amap"
+          package="[packageName]"
           android:versionCode="1"
           android:versionName="1.0">
     <!-- ... -->
