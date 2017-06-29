@@ -11,8 +11,8 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
-import com.reactnativecomponent.amap.RCTAMapPackage;    //import package
-import com.reactnativecomponent.amaplocation.RCTAMapLocationPackage;    //import package
+import com.reactnativecomponent.amap.RCTAMapPackage;
+import com.reactnativecomponent.amaplocation.RCTAMapLocationPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 

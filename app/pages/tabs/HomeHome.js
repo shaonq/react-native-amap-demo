@@ -1,4 +1,4 @@
-import React, {Component,PropTypes,createClass} from 'react';
+import React, {Component} from 'react';
 import {
     View,
     Text,
@@ -75,7 +75,7 @@ class HomeHome extends Component {
         )
     }
     componentWillUnmount () {
-        AMapLocation.cleanUp()
+        AMapLocation.cleanUp() // 清除定位
     }
     render() {
         return (
