@@ -2,11 +2,11 @@
 
 ```
 # 高德地图
-npm install 'react-native-smart-amap' --save;
+npm install 'eact-native-smart-amap --save
 # 高德地图定位
-npm install  'react-native-smart-amap-location --save'
+npm install  react-native-smart-amap-location --save
 # 全局事件监听
-npm install  'react-native-smart-app-event-listener-enhance --save'
+npm install  react-native-smart-app-event-listener-enhance --save
 
 ```
 
