@@ -22,10 +22,10 @@ const options ={
     showsUserLocation: false, //ios 用户位置
     userTrackingMode: Platform.OS === 'ios' ? AMap.constants.userTrackingMode.none : null, // ios 用户位置更新
     centerCoordinate: {//地图的中心点
-        latitude:120.204851,
-        longitude:31.261822,
+        longitude:121.130484,
+        latitude:31.45803,
     },
-    zoomLevel: 8, //指定缩放级别
+    zoomLevel: 13, //指定缩放级别
     centerMarker: Platform.OS === 'ios' ? 'icon_location' : 'poi_marker', //中心点自定义图标的项目资源名称
 };
 /**
@@ -57,7 +57,7 @@ class HomeHome extends Component {
         console.log("加载完成",this._amap)
     };
     _onLocationResult = (result) => {
-        if(result.error) {
+    /*  if(result.error) {
             Alert.alert(`错误代码: ${result.error.code}, 错误信息: ${result.error.localizedDescription}`)
         }
         else {
@@ -67,7 +67,8 @@ class HomeHome extends Component {
             else {
                 Alert.alert(`纬度 = ${result.coordinate.latitude}, 经度 = ${result.coordinate.longitude}`)
             }
-        }
+        }*/
+        console.log(result)
     };
     componentDidMount() {
         this.addAppEventListener(

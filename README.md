@@ -132,10 +132,10 @@ const options ={
     showsUserLocation: false, //ios 用户位置
     userTrackingMode: Platform.OS === 'ios' ? AMap.constants.userTrackingMode.none : null, // ios 用户位置更新
     centerCoordinate: {//地图的中心点
-        latitude:120.204851,
-        longitude:31.261822,
+        longitude:121.130484,
+        latitude:31.45803,
     },
-    zoomLevel: 8, //指定缩放级别
+    zoomLevel: 13, //指定缩放级别
     centerMarker: Platform.OS === 'ios' ? 'icon_location' : 'poi_marker', //中心点自定义图标的项目资源名称
 };
 /**
@@ -208,5 +208,12 @@ export default AppEventListenerEnhance(HomeHome)
 ```
 
 ### end 
+`react-native run-android`
+```json
+{
+    "code":2,
+    "error": "WIFI信息不足 请到http://lbs.amap.com/api/android-location-sdk/abouterrorcode/查看错误码说明."
+}
+```
 
 
